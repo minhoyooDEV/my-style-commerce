@@ -1,6 +1,6 @@
 import { BasicImage } from './default.interface';
 
-export interface Product {
+export interface Sellor {
 	// # 쇼핑몰 정보
 	description: string;
 	// # 쇼핑몰 ID
