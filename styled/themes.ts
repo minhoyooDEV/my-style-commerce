@@ -23,6 +23,9 @@ const basicTheme: BasicTheme = {
 		grey80: '#333',
 		black: '#000',
 	},
+	border: {
+		basic: '#999 solid 0.0625rem',
+	},
 };
 
 export { basicTheme };

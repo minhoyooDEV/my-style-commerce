@@ -22,5 +22,8 @@ declare module 'styled-components' {
 			grey80: string;
 			black: string;
 		};
+		border: {
+			basic: string;
+		};
 	}
 }
