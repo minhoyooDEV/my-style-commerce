@@ -14,5 +14,9 @@ export default styled.div`
 			border-top-left-radius: 0;
 			border-bottom-left-radius: 0;
 		}
+		& + &,
+		&:last-child {
+			margin-left: -0.0625rem;
+		}
 	}
 `;
