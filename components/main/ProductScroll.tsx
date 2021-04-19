@@ -1,22 +1,21 @@
 import { Product } from '../../interfaces/product.interface';
-import MainProductGridItem from '../../styled/main-product-grid-item';
+import ContainerStyled from '../../styled/container.styled';
+import MainProductGridList from '../../styled/main-product-grid-list';
+import ProductScrollItem from './ProductScrollItem';
 
-interface ProductScrollItemProps {
-	data: Product;
+interface ProductScrollProps {
+	data: Product[];
 }
-const ProductScrollItem = ({ data }: ProductScrollItemProps) => {
+const ProductScroll = ({ data }: ProductScrollProps) => {
 	return (
-		<MainProductGridItem key={data.id}>
-			<img src={data.image.url} width="100%" />
-			<div className="overlay">
-				<h3 className="shopname">{data.shopName}</h3>
-				<h3 className="title">
-					<a href={'#' + data.id}>{data.title}</a>
-				</h3>
-				<h3 className="price">{data.price}</h3>
-			</div>
-		</MainProductGridItem>
+		<ContainerStyled>
+			<MainProductGridList>
+				{data.map(d => (
+					<ProductScrollItem key={d.id} data={d} />
+				))}
+			</MainProductGridList>
+		</ContainerStyled>
 	);
 };
 
-export default ProductScrollItem;
+export default ProductScroll;
