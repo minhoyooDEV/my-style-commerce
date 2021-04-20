@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { Product } from '../../interfaces/product.interface';
-import ContainerStyled from '../../styled/container.styled';
+import ContainerStyled, { ResponsiveContainerStyled } from '../../styled/container.styled';
 import LoadingElement from '../../styled/loading-element.styled';
 import MainProductGridList from '../../styled/main-product-grid-list';
 import ProductScrollItem from './ProductScrollItem';
@@ -31,7 +31,7 @@ const ProductScroll = ({ data, onLoadMore, isLoading }: ProductScrollProps) => {
 	}, [bottomElement, onLoadMore]);
 
 	return (
-		<ContainerStyled>
+		<ResponsiveContainerStyled>
 			<MainProductGridList ref={scrollRef}>
 				{data.map(d => (
 					<ProductScrollItem key={d.id} data={d} />
@@ -39,7 +39,7 @@ const ProductScroll = ({ data, onLoadMore, isLoading }: ProductScrollProps) => {
 				<div ref={bottomElement} />
 			</MainProductGridList>
 			{isLoading && <LoadingElement />}
-		</ContainerStyled>
+		</ResponsiveContainerStyled>
 	);
 };
 
