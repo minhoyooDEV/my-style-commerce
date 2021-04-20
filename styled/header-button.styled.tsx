@@ -1,6 +1,14 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-export default styled.button`
+interface headerButtonStyledProps {
+	active?: boolean;
+}
+const activeStyle = css`
+	color: ${({ theme }) => theme.colors.main};
+	border-color: ${({ theme }) => theme.colors.main};
+	z-index: 1;
+`;
+export default styled.button<headerButtonStyledProps>`
 	font-weight: 400;
 	font-size: 0.875rem;
 	border-radius: 0.25rem;
@@ -13,10 +21,10 @@ export default styled.button`
 	padding-left: 1rem;
 	position: relative;
 
+	${({ active }) => (active ? activeStyle : null)};
+
 	:hover,
 	:focus {
-		color: ${({ theme }) => theme.colors.main};
-		border-color: ${({ theme }) => theme.colors.main};
-		z-index: 1;
+		${activeStyle}
 	}
 `;
