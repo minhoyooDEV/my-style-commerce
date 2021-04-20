@@ -18,15 +18,12 @@ const MainPage = ({ products: _products, pagination }: MainPageProps) => {
 
 	const handleLoadMore = useCallback(
 		async (entries: IntersectionObserverEntry[]) => {
-			// console.log(entries[0].isIntersecting && !isLoading && !!next);
 			if (entries[0].isIntersecting && !isLoading && !!next) {
 				try {
 					setIsLoading(true);
 					const response = await fetch(next);
 					const data = JSON.parse(await response.text()) as ResponseProducts;
-					// console.log('data', data);
 					setProducts([...products, ...data.data]);
-					// console.log('next', data.pagination.next);
 					setNext(data.pagination.next || '');
 				} catch (error) {
 					console.log(error);
