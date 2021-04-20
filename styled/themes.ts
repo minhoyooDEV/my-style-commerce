@@ -24,7 +24,7 @@ const basicTheme: BasicTheme = {
 		black: '#000',
 	},
 	border: {
-		basic: '#999 solid 0.0625rem',
+		basic: '#CCC solid 0.0625rem',
 	},
 };
 
