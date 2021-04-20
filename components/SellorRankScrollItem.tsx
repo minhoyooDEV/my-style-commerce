@@ -15,7 +15,6 @@ const SellorRankScrollItem = ({ data, rank }: SellorRankScrollItemProps) => (
 		<RankStyled>
 			<MedalStyled rank={rank}>{rank}</MedalStyled>
 		</RankStyled>
-
 		<ImgStyled>
 			<img src={data.image.url} />
 		</ImgStyled>

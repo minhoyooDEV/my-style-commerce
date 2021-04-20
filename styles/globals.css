@@ -4,6 +4,10 @@ body {
 	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell,
 		Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
+#__next {
+	height: 100vh;
+	width: 100vw;
+}
 * {
 	padding: 0;
 	margin: 0;
@@ -18,8 +22,8 @@ button {
 	background-color: white;
 	border: none;
 	outline: 0;
-  cursor: pointer;
+	cursor: pointer;
 }
 ul {
-  list-style: none;
+	list-style: none;
 }
