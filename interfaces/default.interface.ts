@@ -4,3 +4,12 @@ export interface BasicImage {
 	// 	# 상품 이미지 URL
 	url: string;
 }
+
+export interface Pagination {
+	next?: string;
+}
+
+export interface CommonPaginationResponse<T> {
+	data: T[];
+	pagination: Pagination;
+}

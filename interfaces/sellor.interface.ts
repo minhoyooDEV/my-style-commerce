@@ -1,4 +1,4 @@
-import { BasicImage } from './default.interface';
+import { BasicImage, CommonPaginationResponse } from './default.interface';
 
 export interface Sellor {
 	// # 쇼핑몰 정보
@@ -14,3 +14,5 @@ export interface Sellor {
 	// # 쇼핑몰 랜딩 URL
 	url: string;
 }
+
+export interface ResponseSellors extends CommonPaginationResponse<Sellor> {}

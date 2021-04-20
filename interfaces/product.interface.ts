@@ -1,4 +1,4 @@
-import { BasicImage } from './default.interface';
+import { BasicImage, CommonPaginationResponse } from './default.interface';
 
 export interface Product {
 	id: string; //# 상품 ID
@@ -21,3 +21,5 @@ export interface Product {
 	// # 무시해주세요.
 	likedCount?: number;
 }
+
+export interface ResponseProducts extends CommonPaginationResponse<Product> {}
