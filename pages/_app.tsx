@@ -1,6 +1,6 @@
 import { AppProps } from 'next/dist/next-server/lib/router/router';
 import { ThemeProvider } from 'styled-components';
-import Header from '../components/app/Header';
+import Header from '../components/Header';
 import ComponentsWrapperStyled from '../styled/components-wrapper.styled';
 import { basicTheme } from '../styled/themes';
 

@@ -1,6 +1,6 @@
 import { GetServerSideProps } from 'next';
 import { useCallback, useState } from 'react';
-import ProductScroll from '../components/main/ProductScroll';
+import ProductScroll from '../components/ProductScroll';
 import { Pagination } from '../interfaces/default.interface';
 import { Product, ResponseProducts } from '../interfaces/product.interface';
 
