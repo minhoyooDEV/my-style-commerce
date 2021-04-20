@@ -1,5 +1,12 @@
 import { Product } from '../../interfaces/product.interface';
-import MainProductGridItem from '../../styled/main-product-grid-item';
+import MainProductGridItem, {
+	TitleStyled,
+	OverlayStyled,
+	ImgStyled,
+	PriceStyled,
+	ShopnameStyled,
+} from '../../styled/main-product-grid-item';
+import { toCommaNum } from '../../utiles/formatUtils.';
 
 interface ProductScrollItemProps {
 	data: Product;
@@ -7,14 +14,14 @@ interface ProductScrollItemProps {
 const ProductScrollItem = ({ data }: ProductScrollItemProps) => {
 	return (
 		<MainProductGridItem key={data.id}>
-			<img src={data.image.url} width="100%" />
-			<div className="overlay">
-				<h3 className="shopname">{data.shopName}</h3>
-				<h3 className="title">
+			<ImgStyled src={data.image.url} loading="lazy" alt={data.title} />
+			<OverlayStyled>
+				<ShopnameStyled>{data.shopName}</ShopnameStyled>
+				<TitleStyled>
 					<a href={'#' + data.id}>{data.title}</a>
-				</h3>
-				<h3 className="price">{data.price}</h3>
-			</div>
+				</TitleStyled>
+				<PriceStyled>{toCommaNum(data.price)}</PriceStyled>
+			</OverlayStyled>
 		</MainProductGridItem>
 	);
 };
