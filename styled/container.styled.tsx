@@ -10,6 +10,7 @@ const ContainerStyled = styled.div<ContainerStyledProps>`
 	padding-left: ${({ theme, noGutter }) => (noGutter ? '0' : theme['spacing-2'])};
 	padding-right: ${({ theme, noGutter }) => (noGutter ? '0' : theme['spacing-2'])};
 	max-width: ${({ theme }) => theme.contentsMaxWith};
+	background-color: white;
 `;
 export default ContainerStyled;
 

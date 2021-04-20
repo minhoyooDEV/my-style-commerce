@@ -6,5 +6,6 @@ export default styled.div`
 	height: 100%;
 	padding-top: ${({ theme }) => theme.headerHeight};
 	overflow-y: scroll;
+	background-color: ${({ theme }) => theme.colors.backgroundColor};
 	${scrollHide}
 `;

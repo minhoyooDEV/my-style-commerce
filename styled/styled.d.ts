@@ -21,6 +21,7 @@ declare module 'styled-components' {
 			grey60: string;
 			grey80: string;
 			black: string;
+			backgroundColor: string;
 		};
 		border: {
 			basic: string;
