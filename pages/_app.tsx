@@ -10,6 +10,7 @@ import '../styles/globals.css';
 function App({ Component, pageProps }: AppProps) {
 	const initialProp = {
 		productStore: pageProps?.productStore,
+		sellorStore: pageProps?.sellorStore,
 	};
 	const store = useInitializeStore(initialProp);
 

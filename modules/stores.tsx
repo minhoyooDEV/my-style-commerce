@@ -2,6 +2,7 @@ import React, { useMemo } from 'react';
 import { enableStaticRendering } from 'mobx-react';
 import { configure } from 'mobx';
 import { createProductStore, TProductStoreState } from './productStore';
+import { createSellorStore, TSellorStoreState } from './sellorStore';
 
 const isServer = typeof window === 'undefined';
 // ssr issuese
@@ -13,10 +14,12 @@ configure({
 
 type initializeStoreProps = {
 	productStore: TProductStoreState;
+	sellorStore: TSellorStoreState;
 };
 
 const makeStore = () => ({
 	productStore: createProductStore(),
+	sellorStore: createSellorStore(),
 });
 
 type TStore = ReturnType<typeof makeStore>;
@@ -30,6 +33,7 @@ function initializeStore(initialData: initializeStoreProps) {
 	// get hydrated here, check `pages/ssg.js` and `pages/ssr.js` for more details
 	if (initialData) {
 		_store.productStore.hydrate(initialData.productStore);
+		_store.sellorStore.hydrate(initialData.sellorStore);
 	}
 	// For SSG and SSR always create a new store
 	if (typeof window === 'undefined') return _store;
