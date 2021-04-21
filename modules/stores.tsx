@@ -10,6 +10,7 @@ enableStaticRendering(isServer);
 
 configure({
 	useProxies: 'never',
+	enforceActions: 'never',
 });
 
 type initializeStoreProps = {
