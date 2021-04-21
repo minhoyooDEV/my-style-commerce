@@ -2,7 +2,7 @@
 
 ## Test domain
 
-https://myno-lms-nc0g1mtuh-minhoyoodev.vercel.app/
+https://my-style-commerce-rouge.vercel.app/
 
 ## 개발환경
 
