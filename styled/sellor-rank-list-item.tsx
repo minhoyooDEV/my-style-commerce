@@ -51,14 +51,16 @@ export default styled.li`
 	${mediaquery.xs`
 			font-size: 16px;
 	`}
-	display: flex;
+	a {
+		display: flex;
 
-	padding-top: ${({ theme }) => theme['spacing-2']};
-	padding-bottom: ${({ theme }) => theme['spacing-2']};
+		padding-top: ${({ theme }) => theme['spacing-2']};
+		padding-bottom: ${({ theme }) => theme['spacing-2']};
 
-	padding-right: 0.75em;
-	padding-left: 0.75em;
-	gap: 1em;
+		padding-right: 0.75em;
+		padding-left: 0.75em;
+		gap: 1em;
+	}
 
 	& + & {
 		border-top: ${({ theme }) => theme.border.basic};

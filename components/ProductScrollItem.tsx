@@ -14,14 +14,14 @@ interface ProductScrollItemProps {
 const ProductScrollItem = ({ data }: ProductScrollItemProps) => {
 	return (
 		<MainProductGridItem key={data.id}>
-			<ImgStyled src={data.image.url} loading="lazy" alt={data.title} />
-			<OverlayStyled>
-				<ShopnameStyled>{data.shopName}</ShopnameStyled>
-				<TitleStyled>
-					<a href={'#' + data.id}>{data.title}</a>
-				</TitleStyled>
-				<PriceStyled>{toCommaNum(data.price)}</PriceStyled>
-			</OverlayStyled>
+			<a target="_blank" rel="noopener noreferrer" href={data.mobileUrl || ''}>
+				<ImgStyled src={data.image.url} loading="lazy" alt={data.title} />
+				<OverlayStyled>
+					<ShopnameStyled>{data.shopName}</ShopnameStyled>
+					<TitleStyled>{data.title}</TitleStyled>
+					<PriceStyled>{toCommaNum(data.price)}</PriceStyled>
+				</OverlayStyled>
+			</a>
 		</MainProductGridItem>
 	);
 };
