@@ -1,6 +1,7 @@
 import React, { useMemo } from 'react';
 import { enableStaticRendering } from 'mobx-react';
 import { configure } from 'mobx';
+import { createProductStore, TProductStoreState } from './productStore';
 
 const isServer = typeof window === 'undefined';
 // ssr issuese
@@ -10,9 +11,13 @@ configure({
 	useProxies: 'never',
 });
 
-type initializeStoreProps = {};
+type initializeStoreProps = {
+	productStore: TProductStoreState;
+};
 
-const makeStore = () => ({});
+const makeStore = () => ({
+	productStore: createProductStore(),
+});
 
 type TStore = ReturnType<typeof makeStore>;
 
@@ -24,6 +29,7 @@ function initializeStore(initialData: initializeStoreProps) {
 	// If your page has Next.js data fetching methods that use a Mobx store, it will
 	// get hydrated here, check `pages/ssg.js` and `pages/ssr.js` for more details
 	if (initialData) {
+		_store.productStore.hydrate(initialData.productStore);
 	}
 	// For SSG and SSR always create a new store
 	if (typeof window === 'undefined') return _store;

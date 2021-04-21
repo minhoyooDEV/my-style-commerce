@@ -8,7 +8,9 @@ import { basicTheme } from '../styled/themes';
 import '../styles/globals.css';
 
 function App({ Component, pageProps }: AppProps) {
-	const initialProp = {};
+	const initialProp = {
+		productStore: pageProps?.productStore,
+	};
 	const store = useInitializeStore(initialProp);
 
 	return (
