@@ -1,48 +1,49 @@
+import { observer } from 'mobx-react';
 import { GetServerSideProps } from 'next';
 import { useCallback, useState } from 'react';
 import ProductScroll from '../components/ProductScroll';
-import { Pagination } from '../interfaces/default.interface';
-import { Product, ResponseProducts } from '../interfaces/product.interface';
+import { ResponseProducts } from '../interfaces/product.interface';
+import { useStore } from '../modules/stores';
 
-const FIRST_GOODS_API_URL =
-	'https://gist.githubusercontent.com/styleshare-automation/c0ecddc18a84270128f55efeace2311b/raw/1cc13eeb3492199ead7123dc508cd767d12c47ba/first-goods-response.json';
-interface MainPageProps {
-	products: Product[];
-	pagination: Pagination;
-}
+interface MainPageProps {}
 
-const MainPage = ({ products: _products, pagination }: MainPageProps) => {
+const MainPage = observer(({}: MainPageProps) => {
 	const [isLoading, setIsLoading] = useState(false);
-	const [products, setProducts] = useState(_products || []);
-	const [next, setNext] = useState(pagination?.next || '');
+	const { productStore } = useStore();
 
 	const handleLoadMore = useCallback(
 		async (entries: IntersectionObserverEntry[]) => {
-			if (entries[0].isIntersecting && !isLoading && !!next) {
+			if (entries[0].isIntersecting && !isLoading && productStore.next) {
 				try {
 					setIsLoading(true);
-					const response = await fetch(next);
-					const data = JSON.parse(await response.text()) as ResponseProducts;
-					setProducts([...products, ...data.data]);
-					setNext(data.pagination.next || '');
+					await productStore.loadProducts();
 				} catch (error) {
-					console.log(error);
+					console.error({ error });
 				} finally {
 					setIsLoading(false);
 				}
 			}
 		},
-		[next, products, isLoading],
+		[productStore.next, productStore.list, isLoading],
 	);
 	return (
-		<ProductScroll data={products} onLoadMore={handleLoadMore} isLoading={!!next && isLoading} />
+		<ProductScroll
+			data={productStore.list}
+			onLoadMore={handleLoadMore}
+			isLoading={!!productStore.next && isLoading}
+		/>
 	);
-};
+});
 
 export const getServerSideProps: GetServerSideProps = async () => {
-	const response = await fetch(FIRST_GOODS_API_URL);
-	const data = JSON.parse(await response.text()) as ResponseProducts;
-	return { props: { products: data.data, pagination: data.pagination } };
+	// console.log('MainPage - getServerSideProps');
+	const response = await fetch(process.env.NEXT_PUBLIC_GOODS_FIRST_REQ_API);
+	const data = (await response.json()) as ResponseProducts;
+	return {
+		props: {
+			productStore: { list: data.data, pagination: data.pagination },
+		},
+	};
 };
 
 export default MainPage;
