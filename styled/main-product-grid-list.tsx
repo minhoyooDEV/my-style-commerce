@@ -4,7 +4,6 @@ import mainProductGridItem from './main-product-grid-item';
 export default styled.ul`
 	display: flex;
 	flex-flow: row wrap;
-	position: relative;
 	margin: -1px 0 0 -1px;
 	width: calc(100% + 1px);
 	${mainProductGridItem} {

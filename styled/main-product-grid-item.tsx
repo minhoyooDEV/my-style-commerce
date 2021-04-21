@@ -1,9 +1,10 @@
 import styled from 'styled-components';
+import mediaquery from '../utiles/mediaquery';
 export const ShopnameStyled = styled.div`
-	font-size: 0.5rem;
+	font-size: 0.5em;
 `;
 export const ImgStyled = styled.img`
-	font-size: 1rem;
+	font-size: 1em;
 	margin-left: 50%;
 	margin-top: 50%;
 	transition: all 0.5s ease;
@@ -12,11 +13,11 @@ export const ImgStyled = styled.img`
 export const PriceStyled = styled.div`
 	::before {
 		content: '₩';
-		padding-right: 0.125rem;
+		padding-right: 0.125em;
 	}
 `;
 export const TitleStyled = styled.h3`
-	font-size: 0.875rem;
+	font-size: 0.875em;
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
@@ -28,7 +29,7 @@ export const OverlayStyled = styled.div`
 
 	height: 100%;
 	width: 100%;
-	padding: 0.5rem;
+	padding: 0.5em;
 
 	display: flex;
 	flex-direction: column;
@@ -38,6 +39,10 @@ export const OverlayStyled = styled.div`
 	transition: all 0.5s ease;
 `;
 export default styled.li`
+	font-size: 14px;
+	${mediaquery.xs`
+			font-size: 16px;
+	`}
 	position: relative;
 	background-color: ${({ theme }) => theme.colors.grey06};
 	${ImgStyled}, ${OverlayStyled} {

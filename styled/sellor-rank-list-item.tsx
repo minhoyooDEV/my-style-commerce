@@ -7,20 +7,20 @@ export const InfoStyled = styled.div`
 	flex-direction: column;
 	justify-content: center;
 	h3 {
-		padding-bottom: 0.75rem;
+		padding-bottom: 0.75em;
 	}
 	p {
 		color: ${({ theme }) => theme.colors.grey40};
 	}
 `;
 export const MedalStyled = styled.div<{ rank: number }>`
-	width: 3rem;
-	height: 3rem;
+	width: 3em;
+	height: 3em;
 	border-radius: 50%;
 	background-color: ${({ rank }) => ['', 'gold', 'silver', '#cd7f32'][rank]};
 	color: ${({ theme, rank }) => (rank > 3 ? theme.colors.grey60 : 'white')};
 	text-align: center;
-	line-height: 3rem;
+	line-height: 3em;
 	vertical-align: middle;
 	position: relative;
 	:after {
@@ -42,23 +42,26 @@ export const MedalStyled = styled.div<{ rank: number }>`
 export const ImgStyled = styled.div`
 	img {
 		border-radius: 10%;
-		width: 7rem;
-		height: 7rem;
+		width: 6em;
+		height: 6em;
 	}
 `;
 export default styled.li`
-	display: flex;
-	flex-wrap: wrap;
+	font-size: 14px;
 	${mediaquery.xs`
-		flex-wrap: nowrap;
+			font-size: 16px;
+	`}
+	display: flex;
+	/* flex-wrap: wrap; */
+	${mediaquery.xs`
 	`}
 
 	padding-top: ${({ theme }) => theme['spacing-2']};
 	padding-bottom: ${({ theme }) => theme['spacing-2']};
 
-	padding-right: 0.75rem;
-	padding-left: 0.75rem;
-	gap: 1rem;
+	padding-right: 0.75em;
+	padding-left: 0.75em;
+	gap: 1em;
 
 	& + & {
 		border-top: ${({ theme }) => theme.border.basic};
