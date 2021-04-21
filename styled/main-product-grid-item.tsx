@@ -7,7 +7,6 @@ export const ImgStyled = styled.img`
 	font-size: 1em;
 	margin-left: 50%;
 	margin-top: 50%;
-	transition: all 0.5s ease;
 	transform: translate(-50%, -50%) scale(1);
 `;
 export const PriceStyled = styled.div`
@@ -36,7 +35,6 @@ export const OverlayStyled = styled.div`
 	justify-content: flex-end;
 	align-items: flex-end;
 	text-align: right;
-	transition: all 0.5s ease;
 `;
 export default styled.li`
 	font-size: 14px;
@@ -53,8 +51,10 @@ export default styled.li`
 	:hover {
 		${OverlayStyled} {
 			background-color: rgba(0, 0, 0, 0.02);
+			transition: background-color 0.5s ease;
 		}
 		${ImgStyled} {
+			transition: transform 0.5s ease;
 			transform: translate(-50%, -50%) scale(1.08);
 		}
 	}

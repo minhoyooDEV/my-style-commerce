@@ -52,9 +52,6 @@ export default styled.li`
 			font-size: 16px;
 	`}
 	display: flex;
-	/* flex-wrap: wrap; */
-	${mediaquery.xs`
-	`}
 
 	padding-top: ${({ theme }) => theme['spacing-2']};
 	padding-bottom: ${({ theme }) => theme['spacing-2']};
