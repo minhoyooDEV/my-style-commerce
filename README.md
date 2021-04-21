@@ -17,10 +17,12 @@ https://my-style-commerce-rouge.vercel.app/
   - mobx
 
 ## 실행방법
+- sample
 
+  https://my-style-commerce-rouge.vercel.app/
 - sample env
 
-  `https://drive.google.com/file/d/1A_KgD5SBUMQg2Mg49lYYLm5uIJfBI4ln/view`
+  https://drive.google.com/file/d/1A_KgD5SBUMQg2Mg49lYYLm5uIJfBI4ln/view
 
 - development
   ```bash
