@@ -1,4 +1,5 @@
 import { GetServerSideProps } from 'next';
+import Head from 'next/head';
 import { useCallback, useState } from 'react';
 import SellorRankScroll from '../components/SellorRankScroll';
 import { ResponseSellors } from '../interfaces/sellor.interface';
@@ -27,11 +28,21 @@ const RanksPage = ({}: RanksPageProps) => {
 	);
 
 	return (
-		<SellorRankScroll
-			data={sellorStore.list}
-			onLoadMore={handleLoadMore}
-			isLoading={!!sellorStore.next && isLoading}
-		/>
+		<>
+			<Head>
+				<title>지금 제일 잘나가는 브랜드! 🥇🥈🥉 - MY-STYLE</title>
+				<meta
+					property="og:title"
+					content={`지금 제일 잘나가는 브랜드! 🥇🥈🥉 - MY-STYLE`}
+					key="title"
+				/>
+			</Head>
+			<SellorRankScroll
+				data={sellorStore.list}
+				onLoadMore={handleLoadMore}
+				isLoading={!!sellorStore.next && isLoading}
+			/>
+		</>
 	);
 };
 

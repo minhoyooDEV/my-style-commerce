@@ -1,5 +1,6 @@
 import { observer } from 'mobx-react';
 import { GetServerSideProps } from 'next';
+import Head from 'next/head';
 import { useCallback, useState } from 'react';
 import ProductScroll from '../components/ProductScroll';
 import { ResponseProducts } from '../interfaces/product.interface';
@@ -26,12 +27,19 @@ const MainPage = observer(({}: MainPageProps) => {
 		},
 		[productStore.next, productStore.list, isLoading],
 	);
+
 	return (
-		<ProductScroll
-			data={productStore.list}
-			onLoadMore={handleLoadMore}
-			isLoading={!!productStore.next && isLoading}
-		/>
+		<>
+			<Head>
+				<title>오늘 뭐 입지? 👗👑👠 - MY-STYLE</title>
+				<meta property="og:title" content={`오늘 뭐 입지? 👗👑👠' - MY-STYLE`} key="title" />
+			</Head>
+			<ProductScroll
+				data={productStore.list}
+				onLoadMore={handleLoadMore}
+				isLoading={!!productStore.next && isLoading}
+			/>
+		</>
 	);
 });
 
