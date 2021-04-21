@@ -7,7 +7,7 @@ const basicTheme: BasicTheme = {
 	spacing: defaultSpacing,
 	'spacing-2': `calc(${defaultSpacing} * 2)`,
 	contentsMaxWith: '768px',
-	headerHeight: `3rem`,
+	headerHeight: `4rem`,
 
 	colors: {
 		main: '#fc676c',

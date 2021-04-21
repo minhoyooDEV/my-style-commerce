@@ -11,7 +11,7 @@ export default styled.div`
 	background-color: white;
 	border-bottom: 1px solid lightgray;
 	${ContainerStyled} {
-		height: 3rem;
+		height: ${({ theme }) => theme.headerHeight};
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
